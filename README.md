@@ -27,10 +27,11 @@ Adventure/                # 项目根目录
 │   │   │       │   ├── InputHandler.java  # 键盘输入
 │   │   │       │   └── LevelSystem.java   # 升级/经验系统
 │   │   │       │
-│   │   │       ├── ui/                # 界面 & UI
-│   │   │       │   ├── HUD.java           # 血条/经验条
-│   │   │       │   ├── Menu.java          # 主菜单
-│   │   │       │   └── GameOverScreen.java
+│   │   │       ├── ui/                         # 界面 & UI
+│   │   │       │   ├── HUDUI.java              # 血条、魔法条、经验条
+│   │   │       │   ├── MenuUI.java             # 主菜单
+│   │   │       │   └── CharacterSelectUI.java  # 角色选择界面
+|   |   |       |   └──GameOverUI.java          #游戏结束
 │   │   │       │
 │   │   │       └── map/               # 地图 & 视角
 │   │   │           ├── GameMap.java
