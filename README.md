@@ -48,3 +48,47 @@ Adventure/                # 项目根目录
 
 
 ##接口设计
+-地图接口
+public interface Map {
+    //加载指定地图
+    void loadMap(String mapName);
+    //渲染地图
+    void render();
+
+    //获取地图长度
+    int getLength();
+    //获取地图高度
+    int getHeight();
+
+    //在地图上生成一个掉落物（血包、经验值）
+    void drop(Item item);
+
+    //获取当前位置
+    int[] getCurrentLocation();
+    //显示当前位置（角色x,y坐标）
+    void displayCurrentLocation();
+    //移动到指定位置
+    void moveTo(String location);
+    //判断某个位置是否在地图中
+    boolean hasLocation(String location);
+
+    //显示整个地图的基本信息
+    void displayMapOverView();
+}
+
+-道具接口
+public interface Item{
+    //获得道具在地图中的横坐标
+    int getX();
+    //获取纵坐标
+    int getY();
+    
+    //渲染道具
+    void render();
+    
+    //道具被玩家拾取时触发
+    void onPickup(Player player);
+    
+    //道具类型(血包、经验值等)
+    String getType();
+}
