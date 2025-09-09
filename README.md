@@ -100,6 +100,63 @@ public interface Item{
 String getType();
 }
 
+-ui接口
+//1. 主菜单界面接口
+public interface MenuUI {
+    // 初始化主菜单
+    void initMenu();
+
+    // 渲染主菜单,绘制“单人游戏”等界面元素
+    void render();
+
+    // 鼠标点击事件
+    void handleClick(int mouseX, int mouseY);
+}
+
+//2. 角色选择界面接口
+public interface CharacterSelectUI {
+    // 初始化角色选择界面
+    void initCharacterSelect();
+
+    // 渲染角色选择界面
+    void render();
+}
+
+//3. 战斗信息显示界面接口
+public interface HUDUI {
+    // 初始化HUD，加载血条、魔法条、经验条
+    void initHUD(Player player);
+
+    // 渲染HUD，绘制生命值，魔法值，经验条等战斗信息
+    void render();
+
+    // 更新生命值显示
+    void updateHP(int currentHP, int maxHP);
+
+    // 更新魔法值显示
+    void updateMP(int currentMP, int maxMP);
+
+    // 更新经验值显示
+    void updateExp(int currentExp, int maxExp);
+}
+
+//4. 游戏结束界面接口
+public interface GameOverUI {
+    // 初始化游戏结束界面
+    void initGameOver(boolean isWin);
+
+    // 渲染游戏结束界面
+    void render();
+
+    // 判断是否点击“重新开始”按钮
+    boolean isRestartClicked();
+
+    // 判断是否点击“返回主菜单”按钮
+    boolean isReturnMenuClicked();
+
+    // 检查是否需要关闭游戏结束界面
+    boolean needClose();
+}
 
 
 -敌人接口
@@ -608,60 +665,3 @@ public class EnemyManager {
         }
     }
     
--ui接口
-//1. 主菜单界面接口
-public interface MenuUI {
-    // 初始化主菜单
-    void initMenu();
-
-    // 渲染主菜单,绘制“单人游戏”等界面元素
-    void render();
-
-    // 鼠标点击事件
-    void handleClick(int mouseX, int mouseY);
-}
-
-//2. 角色选择界面接口
-public interface CharacterSelectUI {
-    // 初始化角色选择界面
-    void initCharacterSelect();
-
-    // 渲染角色选择界面
-    void render();
-}
-
-//3. 战斗信息显示界面接口
-public interface HUDUI {
-    // 初始化HUD，加载血条、魔法条、经验条
-    void initHUD(Player player);
-
-    // 渲染HUD，绘制生命值，魔法值，经验条等战斗信息
-    void render();
-
-    // 更新生命值显示
-    void updateHP(int currentHP, int maxHP);
-
-    // 更新魔法值显示
-    void updateMP(int currentMP, int maxMP);
-
-    // 更新经验值显示
-    void updateExp(int currentExp, int maxExp);
-}
-
-//4. 游戏结束界面接口
-public interface GameOverUI {
-    // 初始化游戏结束界面
-    void initGameOver(boolean isWin);
-
-    // 渲染游戏结束界面
-    void render();
-
-    // 判断是否点击“重新开始”按钮
-    boolean isRestartClicked();
-
-    // 判断是否点击“返回主菜单”按钮
-    boolean isReturnMenuClicked();
-
-    // 检查是否需要关闭游戏结束界面
-    boolean needClose();
-}
